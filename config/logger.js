@@ -42,7 +42,7 @@ const logger = winston.createLogger({
     // format: winston.format.simple(), // Using the simplest format
     levels: logLevels.levels,
     transports: [
-        new winston.transports.Console(), // Log to the console
+        // new winston.transports.Console(), // Log to the console
 
         // Log to a file with max level debug
         // if set to info then all logs before level 4 will be logged in to the file

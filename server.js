@@ -3,6 +3,7 @@ const session = require('express-session');
 const passport = require('passport');
 require("dotenv").config();
 require("./core/googleAuth");
+const dbCon = require('./database/connection')
 
 
 const app = express();
@@ -18,7 +19,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', require('./router'));
-
+const dbConn = async () => await dbCon.connectDB();
+dbConn()
 // Start server
 const PORT = process.env.PORT || 5000;
 
