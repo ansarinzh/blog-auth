@@ -8,6 +8,8 @@ const AuthController = require('./controllers/AuthController');
 // Define routes
 router.get('/auth/google', AuthController.login);
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), AuthController.loginCallback);
+router.post('/user/login', AuthController.loginViaCredentials)
+router.post('/user/register', AuthController.registerUser)
 // router.get("/login/google/callback", passport.authenticate("google", { session: false, failureRedirect: "/failure", failureMessage: true }), OAuthController.googleLoginCallback)
 // router.get('/callback', AuthController.loginCallback)
 

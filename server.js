@@ -8,6 +8,9 @@ const dbCon = require('./database/connection')
 
 const app = express();
 
+app.use(express.json({ limit: "60mb" }));
+app.use(express.urlencoded({ limit: "60mb", extended: true }));
+
 // Set up session middleware
 app.use(session({
     secret: 'my-secret-blog-auth-service',
